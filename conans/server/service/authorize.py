@@ -115,6 +115,8 @@ class BasicAuthorizer(Authorizer):
         username: User that request to read the conans
         ref: ConanFileReference
         """
+        if username == None:
+            raise AuthenticationException()
         if ref.user == username:
             return
 
@@ -125,6 +127,8 @@ class BasicAuthorizer(Authorizer):
         username: User that request to write the conans
         ref: ConanFileReference
         """
+        if username == None:
+            raise AuthenticationException()
         if ref.user == username:
             return True
 
